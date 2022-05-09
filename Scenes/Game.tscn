@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Sprites/TinyRanch_Characters.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Farmer.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Mouse.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 0.287502, 0.262501 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 3, 3.5 )
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 8, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 16, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 24, 8, 8 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 2.0
+}, {
+"frames": [ SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 5.0
+} ]
+
+[node name="Game" type="Node2D"]
+scale = Vector2( 0.989201, 1 )
+
+[node name="FarmerRoot" type="Node2D" parent="."]
+
+[node name="MousePoint" type="Area2D" parent="FarmerRoot"]
+position = Vector2( -139, 293 )
+scale = Vector2( 5, 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FarmerRoot/MousePoint"]
+scale = Vector2( 1, 1 )
+shape = SubResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Farmer" type="KinematicBody2D" parent="FarmerRoot"]
+position = Vector2( 142, 320 )
+scale = Vector2( 3, 3 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FarmerRoot/Farmer"]
+position = Vector2( 0, 0.5 )
+shape = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="FarmerRoot/Farmer"]
+scale = Vector2( 1, 1 )
+frames = SubResource( 5 )
+animation = "Walk"
+playing = true
+flip_h = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Mouse" parent="." instance=ExtResource( 3 )]
+position = Vector2( 98, 544 )
+
+[connection signal="body_entered" from="FarmerRoot/MousePoint" to="FarmerRoot/Farmer" method="_on_MousePoint_body_entered"]
+[connection signal="body_exited" from="FarmerRoot/MousePoint" to="FarmerRoot/Farmer" method="_on_MousePoint_body_exited"]

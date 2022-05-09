@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Mouse.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/TinyRanch_Items.png" type="Texture" id=2]
+
+[node name="Mouse" type="Node2D"]
+scale = Vector2( 3, 3 )
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 2.66667, -2.66667 )
+texture = ExtResource( 2 )
+hframes = 7
+vframes = 4
+frame = 12
