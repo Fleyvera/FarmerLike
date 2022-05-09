@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Sprites/TinyRanch_Characters.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Farmer.gd" type="Script" id=2]
@@ -7,15 +7,7 @@
 extents = Vector2( 0.287502, 0.262501 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 3, 3.5 )
-
-[sub_resource type="AtlasTexture" id=1]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 8, 8 )
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 8, 8, 8 )
+extents = Vector2( 3, 4 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
@@ -25,18 +17,74 @@ region = Rect2( 0, 16, 8, 8 )
 atlas = ExtResource( 1 )
 region = Rect2( 0, 24, 8, 8 )
 
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 8, 8, 8 )
+
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 2.0
-}, {
 "frames": [ SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "Walk",
 "speed": 5.0
+}, {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 2.0
 } ]
+
+[sub_resource type="Animation" id=8]
+resource_name = "Idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -6.0 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Walk"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ -10.0, 10.0, -10.0 ]
+}
 
 [node name="FarmerRoot" type="Node2D"]
 
@@ -45,34 +93,52 @@ position = Vector2( -139, 293 )
 scale = Vector2( 5, 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MousePoint"]
-scale = Vector2( 1, 1 )
 shape = SubResource( 7 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Farmer" type="KinematicBody2D" parent="."]
-position = Vector2( 142, 320 )
+position = Vector2( 142, 326 )
 scale = Vector2( 3, 3 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Farmer"]
-position = Vector2( 0, 0.5 )
 shape = SubResource( 6 )
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="WalkFX" type="CPUParticles2D" parent="Farmer"]
+position = Vector2( -0.666668, 3.33333 )
+amount = 20
+lifetime = 0.1
+speed_scale = 0.5
+local_coords = false
+emission_shape = 2
+emission_rect_extents = Vector2( 2, 1 )
+gravity = Vector2( 0, 0 )
+angular_velocity = 90.0
+angular_velocity_random = 1.0
+linear_accel = 60.0
+scale_amount = 2.0
+scale_amount_random = 1.0
+color = Color( 0.717647, 0.588235, 0.364706, 1 )
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Farmer"]
-scale = Vector2( 1, 1 )
+rotation = -0.10472
 frames = SubResource( 5 )
 animation = "Walk"
-frame = 1
 playing = true
 flip_h = true
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Farmer"]
+anims/Idle = SubResource( 8 )
+anims/RESET = SubResource( 9 )
+anims/Walk = SubResource( 10 )
 
 [connection signal="body_entered" from="MousePoint" to="Farmer" method="_on_MousePoint_body_entered"]
 [connection signal="body_exited" from="MousePoint" to="Farmer" method="_on_MousePoint_body_exited"]

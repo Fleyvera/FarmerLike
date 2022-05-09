@@ -53,8 +53,12 @@ func animation():
 	
 	if speed == 0:
 		anim = "Idle"
+		$AnimationPlayer.play("Idle")
+		$WalkFX.emitting = false
 	else:
 		anim = "Walk"
+		$AnimationPlayer.play("Walk")
+		$WalkFX.emitting = true
 	
 	$AnimatedSprite.play(anim)
 	
