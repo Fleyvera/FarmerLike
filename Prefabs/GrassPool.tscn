@@ -1,0 +1,189 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Sprites/TinyRanch_MapDecorations.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Grass.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/GrassPool.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 4, 1 )
+
+[sub_resource type="Animation" id=16]
+resource_name = "Pluck"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0.5, 0 ), Vector2( 0, 0 ), Vector2( -0.5, 0 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "Pluck"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0.5, 0 ), Vector2( 0, 0 ), Vector2( -0.5, 0 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[node name="GrassPool" type="Node2D"]
+z_index = 2
+script = ExtResource( 3 )
+
+[node name="Grass" type="StaticBody2D" parent="." groups=["Grass"]]
+position = Vector2( 1, -2 )
+scale = Vector2( 3, 3 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grass"]
+position = Vector2( 0, 2.66667 )
+shape = SubResource( 11 )
+disabled = true
+
+[node name="ActionArea" type="Area2D" parent="Grass" groups=["Grass"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grass/ActionArea"]
+polygon = PoolVector2Array( -3.66667, 3.66667, -3.66667, 1.33333, -2.66667, -0.666667, -0.333333, -4, 3, -1, 4, 1, 4, 4, -3.66667, 4 )
+
+[node name="Sprite" type="Sprite" parent="Grass"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 16.0493, 0.119152, 7.8299, 7.83924 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Grass"]
+anims/Pluck = SubResource( 16 )
+anims/RESET = SubResource( 14 )
+
+[node name="GrassFx" type="CPUParticles2D" parent="Grass"]
+rotation = -1.5708
+emitting = false
+amount = 50
+lifetime = 1.5
+speed_scale = 1.5
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 3.0
+gravity = Vector2( 0, 45 )
+initial_velocity = 10.0
+angular_velocity = 200.0
+angle = 360.0
+angle_random = 1.0
+scale_amount = 2.5
+scale_amount_random = 1.0
+color = Color( 0.445285, 0.561523, 0.374532, 1 )
+
+[node name="Grass2" type="StaticBody2D" parent="." groups=["Grass"]]
+position = Vector2( 29, -2 )
+scale = Vector2( 3, 3 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grass2"]
+position = Vector2( 0, 2.66667 )
+shape = SubResource( 11 )
+disabled = true
+
+[node name="ActionArea" type="Area2D" parent="Grass2" groups=["Grass"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Grass2/ActionArea"]
+polygon = PoolVector2Array( -3.66667, 3.66667, -3.66667, 1.33333, -3.66667, -2, -2, -3.33333, 3.66667, -3, 4, 1, 4, 4, -3.66667, 4 )
+
+[node name="Sprite" type="Sprite" parent="Grass2"]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 8.11952, 8.05215, 7.76885, 7.89833 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Grass2"]
+anims/Pluck = SubResource( 17 )
+anims/RESET = SubResource( 18 )
+
+[node name="GrassFx" type="CPUParticles2D" parent="Grass2"]
+rotation = -1.5708
+emitting = false
+amount = 50
+lifetime = 1.5
+speed_scale = 1.5
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 3.0
+gravity = Vector2( 0, 45 )
+initial_velocity = 10.0
+angular_velocity = 200.0
+angle = 360.0
+angle_random = 1.0
+scale_amount = 2.5
+scale_amount_random = 1.0
+color = Color( 0.445285, 0.561523, 0.374532, 1 )
+
+[connection signal="area_shape_entered" from="Grass/ActionArea" to="Grass" method="_on_ActionArea_area_shape_entered"]
+[connection signal="area_shape_exited" from="Grass/ActionArea" to="Grass" method="_on_ActionArea_area_shape_exited"]
+[connection signal="area_shape_entered" from="Grass2/ActionArea" to="Grass2" method="_on_ActionArea_area_shape_entered"]
+[connection signal="area_shape_exited" from="Grass2/ActionArea" to="Grass2" method="_on_ActionArea_area_shape_exited"]

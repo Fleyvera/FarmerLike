@@ -1,0 +1,139 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/TinyRanch_Tiles.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/MapPool.gd" type="Script" id=2]
+
+[sub_resource type="TileSet" id=1]
+0/name = "TinyRanch_Tiles.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 24 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 8, 8 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[node name="MapPool" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Grass" type="TileMap" parent="."]
+scale = Vector2( 3, 3 )
+z_index = -1
+tile_set = SubResource( 1 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 8
+cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 65536, 2, 0, 65536, 65536, 0, 65536, 65537, 0, 65536, 65538, 0, 65538, 131072, 0, 3, 131073, 0, 65536, 131074, 0, 65536 )
+
+[node name="Grass2" type="TileMap" parent="."]
+position = Vector2( 80, 0 )
+scale = Vector2( 3, 3 )
+z_index = -1
+tile_set = SubResource( 1 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 8
+cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 65536, 1, 0, 65536, 2, 0, 65536, 65536, 0, 65536, 65537, 0, 65536, 65538, 0, 65536, 131072, 0, 65536, 131073, 0, 65536, 131074, 0, 65536 )
+
+[node name="Grass3" type="TileMap" parent="."]
+position = Vector2( 160, 0 )
+scale = Vector2( 3, 3 )
+z_index = -1
+tile_set = SubResource( 1 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 8
+cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 7, 1, 0, 65536, 2, 0, 65536, 65536, 0, 65536, 65537, 0, 65539, 65538, 0, 65536, 131072, 0, 65536, 131073, 0, 65536, 131074, 0, 65542 )
+
+[node name="Grass4" type="TileMap" parent="."]
+position = Vector2( 240, 0 )
+scale = Vector2( 3, 3 )
+z_index = -1
+tile_set = SubResource( 1 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 8
+cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 65536, 1, 0, 4, 2, 0, 65536, 65536, 0, 2, 65537, 0, 65536, 65538, 0, 65536, 131072, 0, 65536, 131073, 0, 65536, 131074, 0, 65536 )
+
+[node name="Grass5" type="TileMap" parent="."]
+position = Vector2( 0, 80 )
+scale = Vector2( 3, 3 )
+z_index = -1
+tile_set = SubResource( 1 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 8
+cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 65537, 1, 0, 65536, 2, 0, 65536, 65536, 0, 65536, 65537, 0, 1, 65538, 0, 65536, 131072, 0, 65536, 131073, 0, 65536, 131074, 0, 65536 )
+
+[node name="Grass6" type="TileMap" parent="."]
+position = Vector2( 80, 80 )
+scale = Vector2( 3, 3 )
+z_index = -1
+tile_set = SubResource( 1 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 8
+cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 65536, 1, 0, 65536, 2, 0, 65536, 65536, 0, 65536, 65537, 0, 65536, 65538, 0, 65536, 131072, 0, 65536, 131073, 0, 65536, 131074, 0, 65536 )
+
+[node name="Grass7" type="TileMap" parent="."]
+position = Vector2( 160, 80 )
+scale = Vector2( 3, 3 )
+z_index = -1
+tile_set = SubResource( 1 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 8
+cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 65536, 1, 0, 65536, 2, 0, 65536, 65536, 0, 65536, 65537, 0, 65536, 65538, 0, 65536, 131072, 0, 65536, 131073, 0, 65536, 131074, 0, 65536 )
+
+[node name="Grass8" type="TileMap" parent="."]
+position = Vector2( 240, 80 )
+scale = Vector2( 3, 3 )
+z_index = -1
+tile_set = SubResource( 1 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 8
+cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 65536, 1, 0, 65536, 2, 0, 65536, 65536, 0, 65536, 65537, 0, 65536, 65538, 0, 65536, 131072, 0, 65536, 131073, 0, 65536, 131074, 0, 65536 )
+
+[node name="Grass9" type="TileMap" parent="."]
+position = Vector2( 80, 160 )
+scale = Vector2( 3, 3 )
+z_index = -1
+tile_set = SubResource( 1 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 8
+cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 65536, 1, 0, 65536, 2, 0, 65536, 65536, 0, 65536, 65537, 0, 65536, 65538, 0, 65536, 131072, 0, 65536, 131073, 0, 65536, 131074, 0, 65536 )
+
+[node name="Grass10" type="TileMap" parent="."]
+position = Vector2( 0, 160 )
+scale = Vector2( 3, 3 )
+z_index = -1
+tile_set = SubResource( 1 )
+cell_size = Vector2( 8, 8 )
+cell_quadrant_size = 8
+cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 65536, 1, 0, 65536, 2, 0, 65536, 65536, 0, 65536, 65537, 0, 65536, 65538, 0, 65536, 131072, 0, 65536, 131073, 0, 65536, 131074, 0, 65536 )

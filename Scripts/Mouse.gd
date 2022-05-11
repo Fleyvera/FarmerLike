@@ -29,17 +29,26 @@ func _process(delta):
 	pass
 
 
-func _on_Area2D_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+
+
+
+
+
+func _on_Area2D_area_entered(area):
 	
 	if area.is_in_group("Tree"):
 		$Sprite.frame = 14
+	elif area.is_in_group("Grass"):
+		$Sprite.frame = 16
 	
 	pass 
 
 
-func _on_Area2D_area_shape_exited(area_rid, area, area_shape_index, local_shape_index):
+func _on_Area2D_area_exited(area):
 	
 	if area != null and area.is_in_group("Tree"):
+		$Sprite.frame = 12
+	elif area != null and area.is_in_group("Grass"):
 		$Sprite.frame = 12
 	
 	pass # Replace with function body.

@@ -87,6 +87,7 @@ tracks/0/keys = {
 }
 
 [node name="FarmerRoot" type="Node2D"]
+z_index = 1
 
 [node name="MousePoint" type="Area2D" parent="."]
 position = Vector2( -139, 293 )

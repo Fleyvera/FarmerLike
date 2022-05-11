@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Sprites/TinyRanch_MapDecorations.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Tree.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 extents = Vector2( 4, 1 )
 
 [sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 3.5, 4.58333 )
 
 [sub_resource type="Animation" id=13]
 resource_name = "DroppingLeft"
@@ -54,6 +55,51 @@ tracks/0/keys = {
 "values": [ 0.0 ]
 }
 
+[sub_resource type="Animation" id=16]
+resource_name = "DroppingLeft"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -85.0 ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "DroppingRight"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 85.0 ]
+}
+
+[sub_resource type="Animation" id=18]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
 [node name="TreePool" type="Node2D"]
 z_index = 2
 script = ExtResource( 3 )
@@ -73,6 +119,7 @@ shape = SubResource( 11 )
 [node name="ActionArea" type="Area2D" parent="Tree" groups=["Tree"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tree/ActionArea"]
+position = Vector2( 0, 3.25 )
 shape = SubResource( 12 )
 
 [node name="Sprite" type="Sprite" parent="Tree"]
@@ -104,5 +151,55 @@ scale_amount = 2.5
 scale_amount_random = 1.0
 color = Color( 0.768627, 0.619608, 0.619608, 1 )
 
+[node name="Tree2" type="StaticBody2D" parent="." groups=["Tree"]]
+position = Vector2( 56, 0 )
+scale = Vector2( 3, 3 )
+z_index = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tree2"]
+position = Vector2( 0, 7 )
+shape = SubResource( 11 )
+
+[node name="ActionArea" type="Area2D" parent="Tree2" groups=["Tree"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tree2/ActionArea"]
+position = Vector2( 0, 3.25 )
+shape = SubResource( 12 )
+
+[node name="Sprite" type="Sprite" parent="Tree2"]
+position = Vector2( -0.0413322, 8 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -8 )
+region_enabled = true
+region_rect = Rect2( 0.154881, 16.1119, 15.5889, 15.8466 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Tree2"]
+anims/DroppingLeft = SubResource( 16 )
+anims/DroppingRight = SubResource( 17 )
+anims/RESET = SubResource( 18 )
+
+[node name="TreeFx" type="CPUParticles2D" parent="Tree2"]
+position = Vector2( 0, 5 )
+emitting = false
+amount = 50
+explosiveness = 0.2
+lifetime_randomness = 1.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 3.0
+radial_accel = 50.0
+radial_accel_random = 1.0
+angle = 50.0
+angle_random = 1.0
+scale_amount = 2.5
+scale_amount_random = 1.0
+color = Color( 0.768627, 0.619608, 0.619608, 1 )
+
 [connection signal="area_shape_entered" from="Tree/ActionArea" to="Tree" method="_on_ActionArea_area_shape_entered"]
 [connection signal="area_shape_exited" from="Tree/ActionArea" to="Tree" method="_on_ActionArea_area_shape_exited"]
+[connection signal="area_shape_entered" from="Tree2/ActionArea" to="Tree2" method="_on_ActionArea_area_shape_entered"]
+[connection signal="area_shape_exited" from="Tree2/ActionArea" to="Tree2" method="_on_ActionArea_area_shape_exited"]

@@ -4,7 +4,7 @@
 [ext_resource path="res://Sprites/TinyRanch_Items.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 3, 3.16667 )
+extents = Vector2( 0.5, 0.583335 )
 
 [node name="Mouse" type="Node2D" groups=["Mouse"]]
 scale = Vector2( 3, 3 )
@@ -23,5 +23,5 @@ frame = 12
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource( 1 )
 
-[connection signal="area_shape_entered" from="Area2D" to="." method="_on_Area2D_area_shape_entered"]
-[connection signal="area_shape_exited" from="Area2D" to="." method="_on_Area2D_area_shape_exited"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_Area2D_area_exited"]
