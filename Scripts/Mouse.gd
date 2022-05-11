@@ -39,7 +39,7 @@ func _on_Area2D_area_shape_entered(area_rid, area, area_shape_index, local_shape
 
 func _on_Area2D_area_shape_exited(area_rid, area, area_shape_index, local_shape_index):
 	
-	if area.is_in_group("Tree"):
+	if area != null and area.is_in_group("Tree"):
 		$Sprite.frame = 12
 	
 	pass # Replace with function body.

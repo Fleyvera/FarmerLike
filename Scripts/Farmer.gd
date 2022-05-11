@@ -16,6 +16,8 @@ func _process(delta):
 	move(delta)
 	
 	animation()
+	
+	action()
 	pass
 
 
@@ -23,8 +25,8 @@ func move(delta):
 	
 	
 	
-	if Input.is_action_just_pressed("Click"):
-		speed = 100
+	if Input.is_action_just_pressed("Click") and Global.acting == false:
+		speed = Global.speed
 		
 		mpos = get_global_mouse_position()
 		
@@ -65,6 +67,7 @@ func animation():
 	pass
 
 
+#Sistema de andar e parar
 func _on_MousePoint_body_entered(body):
 	
 	if body.name == "Farmer":
@@ -76,6 +79,16 @@ func _on_MousePoint_body_entered(body):
 func _on_MousePoint_body_exited(body):
 	
 	if body.name == "Farmer":
-		speed = 100
+		speed = Global.speed
 	
 	pass 
+
+
+#Sistema de interacao
+func action():
+	
+	if Global.acting:
+		speed = 0
+	
+	
+	pass

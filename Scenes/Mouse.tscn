@@ -8,6 +8,7 @@ extents = Vector2( 3, 3.16667 )
 
 [node name="Mouse" type="Node2D" groups=["Mouse"]]
 scale = Vector2( 3, 3 )
+z_index = 10
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
