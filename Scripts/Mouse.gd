@@ -39,7 +39,7 @@ func _on_Area2D_area_entered(area):
 	if area.is_in_group("Tree"):
 		$Sprite.frame = 14
 	elif area.is_in_group("Grass"):
-		$Sprite.frame = 16
+		$Sprite.frame = 17
 	
 	pass 
 

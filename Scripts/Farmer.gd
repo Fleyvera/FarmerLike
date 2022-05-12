@@ -6,18 +6,23 @@ onready var mpos = global_position
 var dir = Vector2()
 
 
+
 func _ready():
+	
+	startPos()
+	
 	pass 
 
 
 
-func _process(delta):
+func _physics_process(delta):
 	
 	move(delta)
 	
 	animation()
 	
 	action()
+	
 	pass
 
 
@@ -67,6 +72,26 @@ func animation():
 	pass
 
 
+#Sistema de interacao
+func action():
+	
+	if Global.acting:
+		speed = 0
+	
+	
+	pass
+
+#StartPosition
+func startPos():
+	
+	
+	yield(get_tree().create_timer(0.5), "timeout")
+	var mainHouse = get_node("../../MainHouse")
+	
+	global_position = mainHouse.global_position + Vector2(20 , 64)
+	
+	pass
+
 #Sistema de andar e parar
 func _on_MousePoint_body_entered(body):
 	
@@ -84,11 +109,5 @@ func _on_MousePoint_body_exited(body):
 	pass 
 
 
-#Sistema de interacao
-func action():
-	
-	if Global.acting:
-		speed = 0
-	
-	
-	pass
+
+

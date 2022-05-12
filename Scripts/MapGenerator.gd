@@ -1,5 +1,9 @@
 extends Node2D
 
+onready var farmer = get_node("../FarmerRoot/Farmer")
+
+
+var structurePool = preload("res://Prefabs/StructurePool.tscn")
 
 var treePool = preload("res://Prefabs/Tree.tscn")
 
@@ -13,10 +17,12 @@ var mapSize = 0
 
 func _ready():
 	
+	mainHouse()
+	
 	pass 
 
 
-func _process(delta):
+func _physics_process(delta):
 	
 	mapSpawner()
 	
@@ -75,11 +81,21 @@ func mapSpawner():
 			mapSize = 0
 			trueMapSize += 1
 		
-		print(global_position)
-		print(mapSize)
 		
 	pass
 
-
-func _on_Timer_timeout():	
-	pass # Replace with function body.
+func mainHouse():
+	
+	#adicionando a casa principal
+	var nStructurePool = structurePool.instance()
+	
+	var mainHouse = nStructurePool.spawnStructure(0)
+	
+	randomize()
+	
+	mainHouse.global_position = Vector2(rand_range(0 , (get_viewport().size.x - 150)) , rand_range(0 , (get_viewport().size.y - 150) ))
+	
+	get_owner().call_deferred("add_child", mainHouse)
+	
+	
+	pass
