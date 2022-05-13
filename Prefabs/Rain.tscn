@@ -1,0 +1,19 @@
+[gd_scene format=2]
+
+[node name="Rain" type="Node2D"]
+z_index = 5
+
+[node name="RainFx" type="CPUParticles2D" parent="."]
+position = Vector2( 5542, -34 )
+emitting = false
+amount = 10000
+lifetime = 4.0
+speed_scale = 1.5
+randomness = 1.0
+local_coords = false
+emission_shape = 2
+emission_rect_extents = Vector2( 6000, 1 )
+angular_velocity = 60.0
+linear_accel = 90.0
+scale_amount = 3.0
+color = Color( 0, 0.901961, 1, 0.960784 )

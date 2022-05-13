@@ -88,7 +88,7 @@ func startPos():
 	yield(get_tree().create_timer(0.5), "timeout")
 	var mainHouse = get_node("../../MainHouse")
 	
-	global_position = mainHouse.global_position + Vector2(20 , 64)
+	global_position = mainHouse.global_position + Vector2(10 , 32)
 	
 	pass
 
