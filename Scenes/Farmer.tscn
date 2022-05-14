@@ -10,14 +10,6 @@ extents = Vector2( 0.287502, 0.262501 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 3, 4 )
 
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 16, 8, 8 )
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 24, 8, 8 )
-
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 8, 8 )
@@ -26,17 +18,25 @@ region = Rect2( 0, 0, 8, 8 )
 atlas = ExtResource( 1 )
 region = Rect2( 0, 8, 8, 8 )
 
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 16, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 24, 8, 8 )
+
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ SubResource( 3 ), SubResource( 4 ) ],
-"loop": true,
-"name": "Walk",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 1 ), SubResource( 2 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 2.0
+}, {
+"frames": [ SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 5.0
 } ]
 
 [sub_resource type="Animation" id=8]
@@ -131,6 +131,7 @@ color = Color( 0.717647, 0.588235, 0.364706, 1 )
 rotation = -0.10472
 frames = SubResource( 5 )
 animation = "Walk"
+frame = 1
 playing = true
 flip_h = true
 __meta__ = {

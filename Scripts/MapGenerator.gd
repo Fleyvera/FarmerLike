@@ -10,9 +10,8 @@ var treePool = preload("res://Prefabs/Tree.tscn")
 var grassPool = preload("res://Prefabs/GrassPool.tscn")
 
 var mapPool = preload("res://Prefabs/MapPool.tscn")
-var setMapSize = 14
-var trueMapSize = 0
-var mapSize = 0
+var yMapSize = 0
+var xMapSize = 0
 
 
 func _ready():
@@ -57,8 +56,8 @@ func mapSpawner():
 	
 	# X 72 e Y 72
 	
-	if mapSize <= setMapSize and trueMapSize < setMapSize:
-		mapSize += 1
+	if xMapSize <= Global.setMapSize and yMapSize < Global.setMapSize - (Global.setMapSize / 3):
+		xMapSize += 1
 		
 		var nMapPool = mapPool.instance()
 		
@@ -75,11 +74,11 @@ func mapSpawner():
 		
 		global_position += Vector2(72 , 0)
 		
-		if mapSize >= setMapSize:
+		if xMapSize >= Global.setMapSize:
 			global_position.x = 0
 			global_position += Vector2(0 , 72)
-			mapSize = 0
-			trueMapSize += 1
+			xMapSize = 0
+			yMapSize += 1
 		
 		
 	pass

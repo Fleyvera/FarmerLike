@@ -1,5 +1,6 @@
 extends Node
 
+var setMapSize = 32
 
 var speed = 100
 
