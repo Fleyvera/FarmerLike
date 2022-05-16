@@ -106,7 +106,7 @@ script = ExtResource( 3 )
 
 [node name="Tree" type="StaticBody2D" parent="." groups=["Tree"]]
 scale = Vector2( 3, 3 )
-z_index = 3
+z_index = 4
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -154,7 +154,7 @@ color = Color( 0.768627, 0.619608, 0.619608, 1 )
 [node name="Tree2" type="StaticBody2D" parent="." groups=["Tree"]]
 position = Vector2( 56, 0 )
 scale = Vector2( 3, 3 )
-z_index = 3
+z_index = 4
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true

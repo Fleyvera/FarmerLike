@@ -1,22 +1,27 @@
 extends Node2D
 
-#Numero dos filhos
-#1 - MainHouse
 
 
-func spawnStructure(valor):
+
+
+
+
+func spawnFarm(valor):
 	return get_children()[valor].duplicate()
 
-func spawnRandomStructure():
+func spawnRandomFarm():
 	return get_children()[rand_range(0 , get_children().size()) ].duplicate()
 
 
+
+
+
+
+
 func _ready():
-	pass 
+	pass # Replace with function body.
 
 
-#
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-
