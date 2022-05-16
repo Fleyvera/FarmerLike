@@ -111,11 +111,6 @@ func farm():
 		
 		farm.global_position = get_node("BuildRef").global_position
 		
-#		farm.get_node("FirstStep").queue_free()
-#		farm.get_node("SecondStep").queue_free()
-#		farm.get_node("LastStep").queue_free()
-#		farm.get_node("FinalStep").queue_free()
-		
 		farm.z_index = 5
 	
 	

@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/TinyRanch_Tiles.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=2]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="MapSizeSelector" type="OptionButton" parent="."]
+margin_left = 392.0
+margin_top = 256.0
+margin_right = 553.0
+margin_bottom = 276.0
+text = " Map Size"
+icon = ExtResource( 1 )
+expand_icon = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="MapSizeSelector"]
+margin_left = 2.0
+margin_top = -37.0
+margin_right = 253.0
+margin_bottom = -13.0
+text = "Select Map Size:"
+
+[node name="StartButton" type="Button" parent="."]
+margin_left = 376.0
+margin_top = 440.0
+margin_right = 558.0
+margin_bottom = 483.0
+text = "Start"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]

@@ -131,7 +131,6 @@ color = Color( 0.717647, 0.588235, 0.364706, 1 )
 rotation = -0.10472
 frames = SubResource( 5 )
 animation = "Walk"
-frame = 1
 playing = true
 flip_h = true
 __meta__ = {

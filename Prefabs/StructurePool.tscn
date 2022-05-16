@@ -1,16 +1,17 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://StructurePool.tres" type="TileSet" id=1]
 [ext_resource path="res://Scripts/StructurePool.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/MainHouse.gd" type="Script" id=3]
 [ext_resource path="res://MapPool.tres" type="TileSet" id=4]
 [ext_resource path="res://Scripts/BuildSystemTest.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/Plantation.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10.6667, 10.6667 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 4, 4 )
+extents = Vector2( 2.66667, 2.66667 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 12, 12 )
@@ -42,6 +43,7 @@ shape = SubResource( 1 )
 [node name="Plantation" type="Node2D" parent="."]
 position = Vector2( 80, 8 )
 z_index = 2
+script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }

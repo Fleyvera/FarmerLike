@@ -34,7 +34,9 @@ func _process(delta):
 func _on_Area2D_area_entered(area):
 	
 	#criar elif com teste de area pra travar plantacao
-	if area.is_in_group("FarmSpot"):
+	if area.is_in_group("Seed"):
+		isBuildable = false
+	elif area.is_in_group("FarmSpot"):
 		isBuildable = true
 	
 	pass 

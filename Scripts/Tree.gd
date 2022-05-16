@@ -80,6 +80,7 @@ func actionBar():
 
 
 #Sistema de interacao com o mouse
+# warning-ignore:unused_argument
 func _on_ActionArea_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
 	
 	if area.is_in_group("Mouse"):

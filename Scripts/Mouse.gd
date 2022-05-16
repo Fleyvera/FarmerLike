@@ -12,11 +12,30 @@ func _ready():
 
 func _process(delta):
 	
+	
+	buildingNfarming()
+	walkEffect()
+	
+	pass
+
+
+
+func buildingNfarming():
+	
+	if get_parent().get_node("ShopBuildSystem").isBuilding or get_parent().get_node("ShopBuildSystem").isFarming:
+		get_node("Sprite").hide()
+	else:
+		get_node("Sprite").show()
+	
+	pass
+
+
+func walkEffect():
 	var mpos = get_global_mouse_position()
 	
 	global_position = mpos
 	
-	if Input.is_action_just_pressed("Click"):
+	if Input.is_action_just_pressed("Click") and Global.acting == false:
 		
 		var nfx = fx.instance()
 		
@@ -25,12 +44,7 @@ func _process(delta):
 		nfx.global_position = global_position
 		
 		get_parent().add_child(nfx)
-	
-	pass
-
-
-
-
+		pass
 
 
 
