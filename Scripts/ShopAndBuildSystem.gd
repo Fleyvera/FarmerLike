@@ -37,7 +37,7 @@ func build():
 	
 	
 	
-	if Input.is_action_just_pressed("Hack") and isBuilding == false:
+	if Input.is_action_just_pressed("Build") and isBuilding == false:
 		Global.acting = true
 		
 		isBuilding = true
@@ -97,7 +97,7 @@ func farm():
 	
 	
 	
-	if Input.is_key_pressed(KEY_P) and isFarming == false:
+	if Input.is_action_just_pressed("Farm") and isFarming == false:
 		Global.acting = true
 		
 		isFarming = true

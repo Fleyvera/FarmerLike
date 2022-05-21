@@ -1,6 +1,6 @@
 extends Node
 
-var setMapSize 
+var setMapSize = 16
 
 var speed = 100
 

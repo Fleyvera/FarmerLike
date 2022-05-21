@@ -16,8 +16,8 @@ func _process(delta):
 	if dayTime >= setDayTime:
 		dayTime = 0
 	
-	$Hud/ProgressBar.value = dayTime
-	$Hud/ProgressBar.max_value = setDayTime
+	$ProgressBar.value = dayTime
+	$ProgressBar.max_value = setDayTime
 	
 	
 	pass

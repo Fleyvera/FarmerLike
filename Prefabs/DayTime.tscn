@@ -53,9 +53,7 @@ autoplay = "Night"
 anims/Night = SubResource( 1 )
 anims/RESET = SubResource( 2 )
 
-[node name="Hud" type="CanvasLayer" parent="."]
-
-[node name="ProgressBar" type="ProgressBar" parent="Hud"]
+[node name="ProgressBar" type="ProgressBar" parent="."]
 modulate = Color( 0.00784314, 0, 1, 1 )
 margin_left = 306.0
 margin_top = 23.0

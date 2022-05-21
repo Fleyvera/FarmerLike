@@ -12,7 +12,7 @@ func _ready():
 
 func _process(delta):
 	
-	
+	backMouse()
 	buildingNfarming()
 	walkEffect()
 	
@@ -22,10 +22,11 @@ func _process(delta):
 
 func buildingNfarming():
 	
-	if get_parent().get_node("ShopBuildSystem").isBuilding or get_parent().get_node("ShopBuildSystem").isFarming:
-		get_node("Sprite").hide()
-	else:
-		get_node("Sprite").show()
+	if get_owner().get_node("ShopBuildSystem") != null and get_owner().get_node("ShopBuildSystem")  != null:
+		if get_owner().get_node("ShopBuildSystem").isBuilding or get_owner().get_node("ShopBuildSystem").isFarming:
+			get_node("Sprite").hide()
+		else:
+			get_node("Sprite").show()
 	
 	pass
 
@@ -50,6 +51,8 @@ func walkEffect():
 
 func _on_Area2D_area_entered(area):
 	
+	
+	
 	if area.is_in_group("Tree"):
 		$Sprite.frame = 14
 	elif area.is_in_group("Grass"):
@@ -58,11 +61,11 @@ func _on_Area2D_area_entered(area):
 	pass 
 
 
-func _on_Area2D_area_exited(area):
+func backMouse():
 	
-	if area != null and area.is_in_group("Tree"):
-		$Sprite.frame = 12
-	elif area != null and area.is_in_group("Grass"):
+	
+	var isOverlapping = get_node("Area2D").get_overlapping_areas()
+	if isOverlapping.size() == 0:
 		$Sprite.frame = 12
 	
-	pass # Replace with function body.
+	pass
